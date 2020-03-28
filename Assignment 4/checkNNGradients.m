@@ -13,22 +13,32 @@ if ~exist('lambda', 'var') || isempty(lambda)
 end
 
 input_layer_size = 3;
-hidden_layer_size = 5;
+hidden_layer1_size = 5;
+hidden_layer2_size = 5;
+hidden_layer3_size = 5;
+hidden_layer4_size = 5;
 num_labels = 3;
 m = 5;
 
 % We generate some 'random' test data
-Theta1 = debugInitializeWeights(hidden_layer_size, input_layer_size);
-Theta2 = debugInitializeWeights(num_labels, hidden_layer_size);
+Theta1 = randInitializeWeights(input_layer_size, hidden_layer1_size);
+Theta2 = randInitializeWeights(hidden_layer1_size, hidden_layer2_size);
+Theta3 = randInitializeWeights(hidden_layer2_size, hidden_layer3_size);
+Theta4 = randInitializeWeights(hidden_layer3_size, hidden_layer4_size);
+Theta5 = randInitializeWeights(hidden_layer4_size, num_labels);
+
 % Reusing debugInitializeWeights to generate X
 X  = debugInitializeWeights(m, input_layer_size - 1);
 y  = 1 + mod(1:m, num_labels)';
 
 % Unroll parameters
-nn_params = [Theta1(:) ; Theta2(:)];
+nn_params = [Theta1(:) ; Theta2(:) ; Theta3(:) ; Theta4(:) ; Theta5(:)];
 
 % Short hand for cost function
-costFunc = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, ...
+costFunc = @(p) nnCostFunction(p, input_layer_size, hidden_layer1_size, ...
+                               hidden_layer2_size,...
+                               hidden_layer3_size,...
+                               hidden_layer4_size,...
                                num_labels, X, y, lambda);
 
 [cost, grad] = costFunc(nn_params);
@@ -36,9 +46,9 @@ numgrad = computeNumericalGradient(costFunc, nn_params);
 
 % Visually examine the two gradient computations.  The two columns
 % you get should be very similar. 
-disp([numgrad grad]);
-fprintf(['The above two columns you get should be very similar.\n' ...
-         '(Left-Your Numerical Gradient, Right-Analytical Gradient)\n\n']);
+% disp([numgrad grad]);
+% fprintf(['The above two columns you get should be very similar.\n' ...
+%          '(Left-Your Numerical Gradient, Right-Analytical Gradient)\n\n']);
 
 % Evaluate the norm of the difference between two solutions.  
 % If you have a correct implementation, and assuming you used EPSILON = 0.0001 
