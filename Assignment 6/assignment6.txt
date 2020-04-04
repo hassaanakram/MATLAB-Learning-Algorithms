@@ -1,0 +1,1 @@
+Assignmet 6 deals with the basics of SVM
