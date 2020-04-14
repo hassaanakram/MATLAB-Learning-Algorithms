@@ -1,2 +1,2 @@
 # MATLAB-Learning-Algorithms
-This repo holds the learning algorithms presented in the Machine Learning course by Andrew Ng implemented in MATLAB. 
+This repo holds the learning algorithms presented in the Machine Learning course by Andrew Ng implemented in MATLAB and some kaggle datasets analysed in MATLAB
