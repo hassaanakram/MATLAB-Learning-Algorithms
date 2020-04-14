@@ -1,0 +1,3 @@
+This directory holds the MATLAB source code for analysing a kaggle market segmentation dataset (https://www.kaggle.com/vjchoudhary7/customer-segmentation-tutorial-in-python)
+The problem was to cluseter customers of a mall according to their 'spending score' alloted by the mall. 
+I have utilised K-means to cluster the data and the optimum number of clusters was found out to be 3 (by elbow method)
