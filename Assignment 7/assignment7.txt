@@ -1,0 +1,1 @@
+Assignment # 7 deals with the K-means clustering algorithm and PCA for data compression.
