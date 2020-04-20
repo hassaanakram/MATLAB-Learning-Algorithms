@@ -1,0 +1,2 @@
+Assignment # 8 deals with Anamoly detection and recommeder systems. Task to be performed were the implementation of collaborative filtration
+cost function and gaussian density estimation functions.
